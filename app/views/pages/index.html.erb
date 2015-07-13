@@ -5,5 +5,12 @@
 <ul>
 <% @notebooks.each do |notebook| %>
   <li><%= notebook.name %></li>
+  <ul>
+    <% @tasks.each do |task| %>
+      <% if task.notebook_id == notebook.id %>
+        <li><%= task.name %></li>
+      <% end %>
+    <% end %>
+  </ul>
 <% end %>
 </ul>

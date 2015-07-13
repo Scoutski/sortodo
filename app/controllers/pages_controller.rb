@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def index
     @notebooks = Notebook.where(user_id: @current_user.id)
+    @tasks = Task.where(user_id: @current_user.id)
   end
 
   def mytags
