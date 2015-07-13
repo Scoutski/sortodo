@@ -30,7 +30,7 @@ class NotebooksController < ApplicationController
       if @notebook.save
         @notebook.user_id = @current_user.id
         @notebook.save
-        format.html { redirect_to @notebook, notice: 'Notebook was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Notebook was successfully created.' }
         format.json { render :show, status: :created, location: @notebook }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class NotebooksController < ApplicationController
   def update
     respond_to do |format|
       if @notebook.update(notebook_params)
-        format.html { redirect_to @notebook, notice: 'Notebook was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Notebook was successfully updated.' }
         format.json { render :show, status: :ok, location: @notebook }
       else
         format.html { render :edit }
