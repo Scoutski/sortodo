@@ -1,14 +1,6 @@
 # == Route Map
 #
 #        Prefix Verb   URI Pattern                   Controller#Action
-#     notebooks GET    /notebooks(.:format)          notebooks#index
-#               POST   /notebooks(.:format)          notebooks#create
-#  new_notebook GET    /notebooks/new(.:format)      notebooks#new
-# edit_notebook GET    /notebooks/:id/edit(.:format) notebooks#edit
-#      notebook GET    /notebooks/:id(.:format)      notebooks#show
-#               PATCH  /notebooks/:id(.:format)      notebooks#update
-#               PUT    /notebooks/:id(.:format)      notebooks#update
-#               DELETE /notebooks/:id(.:format)      notebooks#destroy
 #          root GET    /                             pages#index
 #         login GET    /login(.:format)              session#new
 #               POST   /login(.:format)              session#create
@@ -19,12 +11,26 @@
 #          user PATCH  /users/:id(.:format)          users#update
 #               PUT    /users/:id(.:format)          users#update
 #               DELETE /users/:id(.:format)          users#destroy
+#     notebooks POST   /notebooks(.:format)          notebooks#create
+#  new_notebook GET    /notebooks/new(.:format)      notebooks#new
+# edit_notebook GET    /notebooks/:id/edit(.:format) notebooks#edit
+#      notebook PATCH  /notebooks/:id(.:format)      notebooks#update
+#               PUT    /notebooks/:id(.:format)      notebooks#update
+#               DELETE /notebooks/:id(.:format)      notebooks#destroy
+#         tasks POST   /tasks(.:format)              tasks#create
+#      new_task GET    /tasks/new(.:format)          tasks#new
+#     edit_task GET    /tasks/:id/edit(.:format)     tasks#edit
+#          task PATCH  /tasks/:id(.:format)          tasks#update
+#               PUT    /tasks/:id(.:format)          tasks#update
+#               DELETE /tasks/:id(.:format)          tasks#destroy
 #
 
 Rails.application.routes.draw do
   
   
   root :to => 'pages#index'
+
+  get '/mytags' => 'pages#mytags'
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

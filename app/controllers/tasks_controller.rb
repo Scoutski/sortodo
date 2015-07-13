@@ -1,3 +1,5 @@
+require 'pry'
+
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
@@ -27,6 +29,10 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+
+    tags = task_params['all_tags'].split(",").map do |tag|
+        Tag.where(name: tag.strip).first_or_create!
+    end
 
     respond_to do |format|
       if @task.save
@@ -73,6 +79,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :due, :location, :file, :notebook_id)
+      params.require(:task).permit(:name, :due, :location, :file, :notebook_id, :all_tags)
     end
 end

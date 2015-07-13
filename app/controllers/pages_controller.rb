@@ -5,6 +5,10 @@ class PagesController < ApplicationController
     @notebooks = Notebook.where(user_id: @current_user.id)
   end
 
+  def mytags
+    @tags = Tag.all
+  end
+
   private
   def authenticate
       @current_user = User.find session[:user_id] if session[:user_id]
