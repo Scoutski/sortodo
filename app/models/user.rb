@@ -11,7 +11,8 @@
 
 class User < ActiveRecord::Base
   has_many :notebooks
-  
+  has_many :tasks, :through => :notebooks
+
   has_secure_password
 
   validates :username, :presence => true, :uniqueness => true

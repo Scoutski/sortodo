@@ -1,2 +1,9 @@
 <h1>Sortodo</h1>
 <p>This is the sortodo homepage!</p>
+
+<h3>Here are your notebooks:</h3>
+<ul>
+<% @notebooks.each do |notebook| %>
+  <li><%= notebook.name %></li>
+<% end %>
+</ul>

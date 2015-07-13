@@ -23,6 +23,7 @@
 
 Rails.application.routes.draw do
   
+  
   root :to => 'pages#index'
 
   get '/login' => 'session#new'
@@ -31,4 +32,5 @@ Rails.application.routes.draw do
 
   resources :users, :except => [:index, :show]
   resources :notebooks, :except => [:index, :show]
+  resources :tasks, :except => [:index, :show]
 end

@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate
 
   def index
-
+    @notebooks = Notebook.where(user_id: @current_user.id)
   end
 
   private
