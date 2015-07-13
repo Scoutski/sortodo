@@ -6,7 +6,15 @@ class PagesController < ApplicationController
   end
 
   def mytags
-    @tags = Tag.all
+    @mytasks = Task.where(user_id: @current_user.id)
+    @tags = []
+
+    @mytasks.each do |task|
+      task.tags.each do |tag|
+        @tags.push tag
+      end
+    end
+    
   end
 
   private
