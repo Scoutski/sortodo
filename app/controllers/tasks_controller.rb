@@ -36,6 +36,13 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+      file = task_params[:file]
+       if file
+         cloudObj = Cloudinary::Uploader.upload(file.path, :resource_type => :auto) 
+         @task.file = cloudObj['url']
+       else
+         @task.file = nil
+       end
         @task.user_id = @current_user.id
         @task.save
         format.html { redirect_to root_path, notice: 'Task was successfully created.' }
