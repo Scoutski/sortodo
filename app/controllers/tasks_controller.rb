@@ -33,13 +33,13 @@ class TasksController < ApplicationController
     tags = task_params['all_tags'].split(",").map do |tag|
         Tag.where(name: tag.strip).first_or_create!
     end
-
     respond_to do |format|
       if @task.save
       file = task_params[:file]
        if file
          cloudObj = Cloudinary::Uploader.upload(file.path, :resource_type => :auto) 
          @task.file = cloudObj['url']
+         @task.filename = task_params[:file].original_filename
        else
          @task.file = nil
        end
@@ -59,6 +59,19 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
+      # Update the tags.
+      tags = task_params['all_tags'].split(",").map do |tag|
+        Tag.where(name: tag.strip).first_or_create!
+      end
+      file = task_params[:file]
+      if file
+        cloudObj = Cloudinary::Uploader.upload(file.path, :resource_type => :auto) 
+        @task.file = cloudObj['url']
+        @task.filename = task_params[:file].original_filename
+      else
+        @task.file = nil
+      end
+      @task.save
         format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
@@ -86,6 +99,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :due, :location, :file, :notebook_id, :all_tags)
+      params.require(:task).permit(:name, :due, :location, :file, :notebook_id, :priority, :all_tags)
     end
 end

@@ -28,6 +28,10 @@
     <%= f.file_field :file %>
   </div>
   <div class="field">
+    <%= f.label :priority %>
+    <%= f.select :priority, ['1', '2', '3', '4'], default: '4' %>
+  </div>
+  <div class="field">
     <%= f.label :all_tags %>
     <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>  
   </div>
