@@ -63,6 +63,17 @@
   <h3>{{ name }}</h3>
 </script>
 
+<script id="addNewNotebookTemplate" type="text/template">
+  <h3><strong>Add a new notebook</strong></h3>
+</script>
+
+<script id="addNewNotebookWindowTemplate" type="text/template">
+  <h3>Add New Notebook</h3>
+
+  <button id="addNotebook">Add Notebook</button>
+  <button id="closeOverlay">Close Window</button>
+</script>
+
 <script id="contentView" type="text/template">
   <h3>This is where the content goes.</h3>
 </script>
@@ -98,6 +109,7 @@
   <div class="field">Due: <input type="date" name="due"></div><br>
   <div class="field">Location: <input type="text"></div><br>
   <div class="field">File: <input type="file"></div><br>
+  <button id="addTask">Add Task</button>
   <button id="closeOverlay">Close Window</button>
 </script>
 

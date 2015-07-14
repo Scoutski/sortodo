@@ -36,8 +36,6 @@ app.AppRouter = Backbone.Router.extend({
     
     var notebookTasksView = new app.NotebookTasksView({model: notebook});
     notebookTasksView.render();
-
-    
   },
 
   allTasks: function() {

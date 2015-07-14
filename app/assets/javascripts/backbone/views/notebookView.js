@@ -9,6 +9,8 @@ app.NotebookView = Backbone.View.extend({
         model: app.notebooks.models[i]
       });
       notebook.render();
-    }
+    };
+    var addNewNotebookView = new app.AddNewNotebookView();
+    addNewNotebookView.render();
   },
 });
