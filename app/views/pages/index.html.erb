@@ -23,7 +23,8 @@
   <%= link_to('Log Out', root_path, :method => :delete, :confirm => 'Are you sure?') %>
 </script>
 
-<script id="editTaskWindow" type="text/template"> 
+<script id="showTaskWindow" type="text/template"> 
+  <!-- This is the pop-up window when you select a task. -->
   <h3>{{ name }}</h3>
   <p>Priority: {{ priority }}</p>
   {[ if (due !== null) { ]}
@@ -31,8 +32,28 @@
   {[ } ]}
   <p>Location: {{ location }}</p>
   {[ if (file !== null) { ]}
-  <p>Associated file: <a href="{{ file }}">{{filename}}</a></p>
+  <p>Associated file: <a href="{{ file }}" target="new">{{filename}}</a></p>
   {[ } ]}
+  <button id="closeOverlay">Close Window</button>
+  <button id="editTaskButton">Edit Task</button>
+</script>
+
+<script id="editTaskWindow" type="text/template">
+  <!-- This is the pop-up window when you select the edit button from the show task window. -->
+  <h3>Edit Task</h3>
+  <div class="field">Name: <input type="text" value="{{name}}" name="name"></div><br>
+  <div class="field">Priority: 
+  <select value="{{priority}}">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  </div><br>
+  <div class="field">Due: <input type="date" value="{{moment(due).format('YYYY-MM-DD')}}" name="due"></div><br>
+  <div class="field">Location: <input type="text" value="{{location}}"></div><br>
+  <div class="field">File: <input type="file"></div><br>
+  <!-- TODO: Figure out how to do the tags... -->
   <button id="closeOverlay">Close Window</button>
 </script>
 

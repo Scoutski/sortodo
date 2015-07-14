@@ -20,7 +20,7 @@ app.TaskIndividualView = Backbone.View.extend({
     $(".phaseBackground").show();
 
     // Render the new window with this model.
-    var task = new app.EditTaskWindow({
+    var task = new app.ShowTaskWindow({
       model: this.model
     });
     task.render();

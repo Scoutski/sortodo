@@ -1,9 +1,9 @@
 var app = app || {};
 
 app.EditTaskWindow = Backbone.View.extend({
- el: '.editTask',
+  el: '.editTask',
 
- render: function() { 
+  render: function() {
     this.$el.html('');
 
     var editTaskWindowTemplate = $('#editTaskWindow').html();
