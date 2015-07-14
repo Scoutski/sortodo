@@ -1,16 +1,18 @@
-<h1>Sortodo</h1>
-<p>This is the sortodo homepage!</p>
+<div id="main">
+  <div id="nav"></div>
+  <div id="notebook"></div>
+  <div id="content"></div>
+</div>
 
-<h3>Here are your notebooks:</h3>
-<ul>
-<% @notebooks.each do |notebook| %>
-  <li><%= notebook.name %></li>
-  <ul>
-    <% @tasks.each do |task| %>
-      <% if task.notebook_id == notebook.id %>
-        <li><%= task.name %></li>
-      <% end %>
-    <% end %>
-  </ul>
-<% end %>
-</ul>
+<script id="navView" type="text/template">
+  <!-- <h3>This is where the navigation goes.</h3> -->
+  <li><%= link_to('Home', root_path) %></li>
+</script>
+
+<script id="notebookView" type="text/template"> 
+  <h3>This is where the notebooks go.</h3>
+</script>
+
+<script id="contentView" type="text/template">
+  <h3>This is where the content goes.</h3>
+</script>
