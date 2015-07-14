@@ -1,3 +1,5 @@
+// navView represents the links that permanently appear at the top of the page.
+
 var app = app || {};
 
 app.NavView = Backbone.View.extend({

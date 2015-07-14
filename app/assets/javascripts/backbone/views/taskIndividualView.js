@@ -1,3 +1,5 @@
+// The TaskIndividualView is used to list out each individual task as part of the main TaskView
+
 var app = app || {};
 
 app.TaskIndividualView = Backbone.View.extend({

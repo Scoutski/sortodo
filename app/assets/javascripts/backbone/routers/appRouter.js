@@ -33,8 +33,11 @@ app.AppRouter = Backbone.Router.extend({
 
     var notebook = app.notebooks.get(id);
     console.log('appRouter.js - passing in this notebook', notebook);
+    
     var notebookTasksView = new app.NotebookTasksView({model: notebook});
     notebookTasksView.render();
+
+    
   },
 
   allTasks: function() {

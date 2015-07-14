@@ -1,3 +1,5 @@
+// The EditTaskWindow is used for the popup window that appears when you click on a task in the #content div.
+
 var app = app || {};
 
 app.EditTaskWindow = Backbone.View.extend({

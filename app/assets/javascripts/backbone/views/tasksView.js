@@ -1,3 +1,5 @@
+// TasksView lists out all the tasks in the main window if the "all tasks" option is selected.
+
 var app = app || {};
 
 app.TasksView = Backbone.View.extend({
