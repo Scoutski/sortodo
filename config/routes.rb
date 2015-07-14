@@ -27,14 +27,13 @@
 
 Rails.application.routes.draw do
   
-  
-  root :to => 'pages#index'
+  root :to => 'session#new'
+  post '/' => 'session#create'
+  delete '/' => 'session#destroy'
+
+  get '/app' => 'pages#index', :as => 'app'
 
   get '/mytags' => 'pages#mytags'
-
-  get '/login' => 'session#new'
-  post '/login' => 'session#create'
-  delete '/login' => 'session#destroy'
 
   resources :users, :except => [:index, :show]
   resources :notebooks, :except => [:index, :show]

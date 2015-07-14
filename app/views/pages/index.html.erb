@@ -5,8 +5,8 @@
 </div>
 
 <script id="navView" type="text/template">
-  <!-- <h3>This is where the navigation goes.</h3> -->
   <li><%= link_to('Home', root_path) %></li>
+  <li><%= link_to('Log Out', root_path, :method => :delete, :confirm => 'Are you sure?') %></li>
 </script>
 
 <script id="notebookView" type="text/template"> 
