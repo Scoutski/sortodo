@@ -32,9 +32,9 @@ gem 'cloudinary'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'remove_turbolinks'
+gem 'pry-rails'
 
 group :development do
-  gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'annotate'
   gem 'quiet_assets'
