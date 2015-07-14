@@ -3,8 +3,6 @@
 <div class="overlay">
   <div class="middleOverlay">
     <div class="editTask">
-      <h2>Here's your task bub.</h2>
-      <button id="closeOverlay">Close</button>
     </div>
   </div>
 </div>
@@ -25,13 +23,17 @@
   <%= link_to('Log Out', root_path, :method => :delete, :confirm => 'Are you sure?') %>
 </script>
 
-<!-- <script id="notebookView" type="text/template"> 
-  <h3>All Tasks</h3>
-</script> -->
+<script id="editTaskWindow" type="text/template"> 
+  <h3>This Task</h3>
+  <p>{{ name }}</p>
+
+  <button id="closeOverlay">Close Window</button>
+</script>
 
 <script id="notebookListTemplate" type="text/template">
   <h3>{{ name }}</h3>
 </script>
+
 <script id="contentView" type="text/template">
   <h3>This is where the content goes.</h3>
 </script>

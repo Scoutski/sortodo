@@ -15,7 +15,14 @@ app.TaskIndividualView = Backbone.View.extend({
   },
 
   popupEdit: function() {
-  $(".editTask").parentsUntil("body").show();
-  $(".phaseBackground").show();
+    // Show the popup window first.
+    $(".editTask").parentsUntil("body").show();
+    $(".phaseBackground").show();
+
+    // Render the new window with this model.
+    var task = new app.EditTaskWindow({
+      model: this.model
+    });
+    task.render();
   }
 });

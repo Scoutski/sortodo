@@ -16,9 +16,4 @@ $(document).ready(function() {
     app.router = new app.AppRouter();
     Backbone.history.start();
   });
-
-  $('#closeOverlay').on('click', function() {
-    $('.overlay').hide();
-    $('.phaseBackground').hide();    
-  });
 });
