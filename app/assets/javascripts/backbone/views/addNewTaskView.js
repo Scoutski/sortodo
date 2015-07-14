@@ -3,7 +3,7 @@
 var app = app || {};
 
 app.AddNewTaskView = Backbone.View.extend({
-  el: '#content',
+  tagName: 'p',
 
   events: {
     'click': 'addNewTaskWindow'
@@ -12,7 +12,8 @@ app.AddNewTaskView = Backbone.View.extend({
   render: function() {
     var addNewTaskTemplate = $('#addNewTaskTemplate').html();
     var addNewTaskHTML = _.template(addNewTaskTemplate);
-    this.$el.append(addNewTaskHTML());
+    var toAppend = this.$el.html(addNewTaskHTML());
+    $('#content').append(toAppend);
   },
 
   addNewTaskWindow: function() {
@@ -20,7 +21,7 @@ app.AddNewTaskView = Backbone.View.extend({
     $(".phaseBackground").show();
 
     // Render the new window with this model.
-    var task = new app.AddNewTaskWindow({});
-    task.render();
+    var thistask = new app.AddNewTaskWindow({});
+    thistask.render();
   }
 });
