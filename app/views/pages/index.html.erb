@@ -24,9 +24,15 @@
 </script>
 
 <script id="editTaskWindow" type="text/template"> 
-  <h3>This Task</h3>
-  <p>{{ name }}</p>
-
+  <h3>{{ name }}</h3>
+  <p>Priority: {{ priority }}</p>
+  {[ if (due !== null) { ]}
+  <p>Due Date: {{ moment(due).format('ll') }}</p>
+  {[ } ]}
+  <p>Location: {{ location }}</p>
+  {[ if (file !== null) { ]}
+  <p>Associated file: <a href="{{ file }}">{{filename}}</a></p>
+  {[ } ]}
   <button id="closeOverlay">Close Window</button>
 </script>
 
