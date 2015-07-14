@@ -9,13 +9,13 @@
 </div>
 
 <script id="navView" type="text/template">
-  <%= link_to('Home', root_path) %> | 
+  <%= link_to('Home', app_path) %> | 
   <%= link_to('Log Out', root_path, :method => :delete, :confirm => 'Are you sure?') %>
 </script>
 
-<script id="notebookView" type="text/template"> 
-  <h3>This is where the notebooks go.</h3>
-</script>
+<!-- <script id="notebookView" type="text/template"> 
+  <h3>All Tasks</h3>
+</script> -->
 
 <script id="notebookListTemplate" type="text/template">
   <h3>{{ name }}</h3>
@@ -29,8 +29,13 @@
   <h3>{{ name }}</h3>
 </script>
 
+<script id="allTasksView" type="text/template">
+  <h3>All Tasks</h3>
+</script>
+
 <script id="notebookTasksTemplate" type="text/template">
-  <h3>This is the notebookTasksTemplate</h3>
+  <!-- This is where the name of the notebook is displayed in the content section -->
+  <h1>{{name}}</h1>
 </script>
 
 <script id="taskListTemplate" type="text/template">

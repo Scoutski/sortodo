@@ -3,12 +3,16 @@ var app = app || {};
 app.AppRouter = Backbone.Router.extend({
   routes: {
     '': 'home',
-    'notebooks/:id/tasks': 'notebookTasks'
+    'notebooks/:id/tasks': 'notebookTasks',
+    'tasks/': 'allTasks'
   },
 
   home: function() {
     var navView = new app.NavView();
     navView.render();
+
+    var allTasksView = new app.AllTasksView();
+    allTasksView.render();
 
     var notebookView = new app.NotebookView();
     notebookView.render();
@@ -21,6 +25,9 @@ app.AppRouter = Backbone.Router.extend({
     var navView = new app.NavView();
     navView.render();
 
+    var allTasksView = new app.AllTasksView();
+    allTasksView.render();
+
     var notebookView = new app.NotebookView();
     notebookView.render();
 
@@ -28,5 +35,20 @@ app.AppRouter = Backbone.Router.extend({
     console.log('appRouter.js - passing in this notebook', notebook);
     var notebookTasksView = new app.NotebookTasksView({model: notebook});
     notebookTasksView.render();
+  },
+
+  allTasks: function() {
+    var navView = new app.NavView();
+    navView.render();
+
+    var allTasksView = new app.AllTasksView();
+    allTasksView.render();
+
+    var notebookView = new app.NotebookView();
+    notebookView.render();
+
+    console.log('appRouter.js - returning every task');
+    var TasksView = new app.TasksView();
+    TasksView.render();
   }
 });
