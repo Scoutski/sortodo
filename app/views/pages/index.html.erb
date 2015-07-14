@@ -1,16 +1,24 @@
 <div id="main">
   <div id="nav"></div>
-  <div id="notebook"></div>
-  <div id="content"></div>
+
+  <div class="row">
+    <div id="notebook" class="col-md-2"></div>
+    <div id="content" class="col-md-10"></div>
+  </div>
+
 </div>
 
 <script id="navView" type="text/template">
-  <li><%= link_to('Home', root_path) %></li>
-  <li><%= link_to('Log Out', root_path, :method => :delete, :confirm => 'Are you sure?') %></li>
+  <%= link_to('Home', root_path) %> | 
+  <%= link_to('Log Out', root_path, :method => :delete, :confirm => 'Are you sure?') %>
 </script>
 
 <script id="notebookView" type="text/template"> 
   <h3>This is where the notebooks go.</h3>
+</script>
+
+<script id="notebookListTemplate" type="text/template">
+  <h3>{{ name }}</h3>
 </script>
 
 <script id="contentView" type="text/template">

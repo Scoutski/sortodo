@@ -6,6 +6,9 @@ _.templateSettings = {
 };
 
 $(document).ready(function() {
-  app.router = new app.AppRouter();
-  Backbone.history.start();
+  app.notebooks = new app.Notebooks();
+  app.notebooks.fetch().done(function() {
+    app.router = new app.AppRouter();
+    Backbone.history.start();
+  });
 });

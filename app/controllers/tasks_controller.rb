@@ -6,7 +6,11 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.where(user_id: @current_user.id)
+    respond_to do |format| 
+      format.html { redirect_to app_path }
+      format.json {render :json => @tasks }
+    end
   end
 
   # GET /tasks/1

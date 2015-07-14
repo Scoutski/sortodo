@@ -1,3 +1,26 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#main {
+  max-width: 100%;
+}
+
+#nav {
+  height: 5vh;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#notebook {
+  height: 95vh;
+  padding: 0;
+}
+
+#content {
+  height: 95vh;
+  padding: 0;
+}

@@ -36,6 +36,6 @@ Rails.application.routes.draw do
   get '/mytags' => 'pages#mytags'
 
   resources :users, :except => [:index, :show]
-  resources :notebooks, :except => [:index, :show]
+  resources :notebooks, :except => [:show]
   resources :tasks, :except => [:index, :show]
 end

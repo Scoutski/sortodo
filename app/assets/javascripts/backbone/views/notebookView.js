@@ -4,9 +4,13 @@ app.NotebookView = Backbone.View.extend({
   el: "#notebook",
 
   render: function() {
-    var notebookTemplate = $('#notebookView').html();
-    var notebookHTML = _.template(notebookTemplate);
-    var toAppend = this.$el.html(notebookHTML());
-    this.$el.append(toAppend);
-  },
+    for (var i = 0; i < app.notebooks.models.length; i++) {
+      console.log('there are ' + app.notebooks.models.length + ' notebooks.');
+      var notebook = new app.NotebookListView({
+        model: app.notebooks.models[i]
+      });
+      notebook.render();
+    }
+  }
+  // },
 });

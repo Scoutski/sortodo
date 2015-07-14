@@ -17,3 +17,5 @@ app.AppRouter = Backbone.Router.extend({
     contentView.render();
   },
 });
+
+// app.notebooks.models[0].attributes
