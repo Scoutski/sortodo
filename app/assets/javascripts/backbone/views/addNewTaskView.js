@@ -16,6 +16,11 @@ app.AddNewTaskView = Backbone.View.extend({
   },
 
   addNewTaskWindow: function() {
-    console.log('you tried to add a new task!')
+    $(".editTask").parentsUntil("body").show();
+    $(".phaseBackground").show();
+
+    // Render the new window with this model.
+    var task = new app.AddNewTaskWindow({});
+    task.render();
   }
 });
