@@ -37,5 +37,8 @@ Rails.application.routes.draw do
 
   resources :users, :except => [:index, :show]
   resources :notebooks, :except => [:show]
-  resources :tasks, :except => [:index, :show]
+  get '/notebooks/:id/tasks' => 'tasks#specific'
+
+  resources :tasks, :except => [:show]
+
 end

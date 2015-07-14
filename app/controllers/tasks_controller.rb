@@ -3,10 +3,16 @@ require 'pry'
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-  # GET /tasks
-  # GET /tasks.json
   def index
     @tasks = Task.where(user_id: @current_user.id)
+    respond_to do |format| 
+      format.html { redirect_to app_path }
+      format.json {render :json => @tasks }
+    end
+  end
+
+  def specific
+    @tasks = Task.where(:user_id => @current_user.id, :notebook_id => params[:id])
     respond_to do |format| 
       format.html { redirect_to app_path }
       format.json {render :json => @tasks }

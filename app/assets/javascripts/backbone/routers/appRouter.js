@@ -1,9 +1,9 @@
 var app = app || {};
 
 app.AppRouter = Backbone.Router.extend({
-
   routes: {
-    '': 'home'
+    '': 'home',
+    'notebooks/:id': 'notebookTasks'
   },
 
   home: function() {
@@ -16,6 +16,15 @@ app.AppRouter = Backbone.Router.extend({
     var contentView = new app.ContentView();
     contentView.render();
   },
-});
 
-// app.notebooks.models[0].attributes
+  notebookTasks: function() {
+    var navView = new app.NavView();
+    navView.render();
+
+    var notebookView = new app.NotebookView();
+    notebookView.render();
+    
+    var notebookTasksView = new app.NotebookTasksView();
+    notebookTasksView.render();
+  }
+});

@@ -7,8 +7,12 @@ _.templateSettings = {
 
 $(document).ready(function() {
   app.notebooks = new app.Notebooks();
+  app.tasks = new app.Tasks();
+
   app.notebooks.fetch().done(function() {
-    app.router = new app.AppRouter();
-    Backbone.history.start();
+    app.tasks.fetch().done(function() {
+      app.router = new app.AppRouter();
+      Backbone.history.start();
+    });
   });
 });
