@@ -13,5 +13,4 @@ app.NotebookView = Backbone.View.extend({
       notebook.render();
     }
   }
-  // },
 });

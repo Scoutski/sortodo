@@ -3,7 +3,7 @@ var app = app || {};
 app.AppRouter = Backbone.Router.extend({
   routes: {
     '': 'home',
-    'notebooks/:id': 'notebookTasks'
+    'notebooks/:id/tasks': 'notebookTasks'
   },
 
   home: function() {
@@ -17,14 +17,16 @@ app.AppRouter = Backbone.Router.extend({
     contentView.render();
   },
 
-  notebookTasks: function() {
+  notebookTasks: function(id) {
     var navView = new app.NavView();
     navView.render();
 
     var notebookView = new app.NotebookView();
     notebookView.render();
-    
-    var notebookTasksView = new app.NotebookTasksView();
+
+    var notebook = app.notebooks.get(id);
+    console.log('appRouter.js - passing in this notebook', notebook);
+    var notebookTasksView = new app.NotebookTasksView({model: notebook});
     notebookTasksView.render();
   }
 });

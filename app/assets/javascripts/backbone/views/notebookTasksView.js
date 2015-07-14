@@ -5,12 +5,13 @@ app.NotebookTasksView = Backbone.View.extend({
 
   render: function() {
     this.$el.html('');
+    
+    var notebookTasksTemplate = $('#notebookTasksTemplate').html();
+    var notebookTasksHTML = _.template(notebookTasksTemplate);
+    
+    this.$el.html(notebookTasksHTML(this.model.toJSON()));
 
-    for (var i = 0; i < app.tasks.models.length; i++) {
-      var task = new app.TaskIndividualView({
-        model: app.tasks.models[i]
-      });
-      task.render();
-    }
+    this.tasks = new app.Tasks({notebook_id: this.model.get('id')});
+    this.tasks.fetch();
   }
 });

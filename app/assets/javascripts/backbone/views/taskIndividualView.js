@@ -6,7 +6,7 @@ app.TaskIndividualView = Backbone.View.extend({
   render: function() {
     var taskListTemplate = $('#taskListTemplate').html();
     var taskListHTML = _.template(taskListTemplate);
-    var toAppend = this.$el.html(taskListHTML(this.model.toJSON()) );
-    $('#content').append( toAppend );
+    this.$el.html(taskListHTML(this.model.toJSON()));
+    this.$el.appendTo('#content');
   }
 });

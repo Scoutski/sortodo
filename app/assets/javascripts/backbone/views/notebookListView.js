@@ -15,9 +15,7 @@ app.NotebookListView = Backbone.View.extend({
   },
 
   showTasks: function() {
-    app.currentNotebook = this.model.get('id');
-    console.log('notebook id:', app.currentNotebook);
-
-    app.router.navigate('notebooks/' + app.currentNotebook, true);
+    console.log('notebook id:', this.model.get('id'));
+    app.router.navigate('notebooks/' + this.model.get('id') + '/tasks', true);
   }
 });
