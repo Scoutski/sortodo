@@ -25,5 +25,19 @@ app.ShowTaskWindow = Backbone.View.extend({
       });
       task.render();
     });
+
+    $('#deleteTaskButton').on('click', function() {
+      $('.overlay').hide();
+      $('.phaseBackground').hide();  
+
+      model.destroy().done(function() {
+        console.log('task deleted.');
+        var notebook = app.notebooks.get(app.currentNotebook);
+        var notebookTasksView = new app.NotebookTasksView({model: notebook});
+        notebookTasksView.render();
+      });
+    })
+
+
   }
 });
