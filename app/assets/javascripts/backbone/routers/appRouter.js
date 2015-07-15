@@ -22,6 +22,10 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   notebookTasks: function(id) {
+    console.log('appRouter.js - Loading Notebook ' + app.currentNotebook + ' view.');
+
+    app.currentNotebook = id;
+
     var navView = new app.NavView();
     navView.render();
 

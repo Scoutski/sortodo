@@ -52,7 +52,6 @@
   </div><br>
   <div class="field">Due: <input type="date" value="{{moment(due).format('YYYY-MM-DD')}}" name="due"></div><br>
   <div class="field">Location: <input type="text" value="{{location}}"></div><br>
-  <div class="field">File: <input type="file"></div><br>
   <!-- TODO: Figure out how to do the tags ub gere... -->
   <button id="closeOverlay">Close Window</button>
   <!-- TODO: Make the below button actually work... -->
@@ -97,18 +96,17 @@
 
 <script id="addNewTaskWindowTemplate" type="text/template">
   <h3>Add a new Task:</h3>
-  <div class="field">Name: <input type="text" name="name"></div><br>
+  <div class="field">Name: <input type="text" name="name" class="name"></div><br>
   <div class="field">Priority: 
-  <select>
+  <select class="priority">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
   </select>
   </div><br>
-  <div class="field">Due: <input type="date" name="due"></div><br>
-  <div class="field">Location: <input type="text"></div><br>
-  <div class="field">File: <input type="file"></div><br>
+  <div class="field">Due: <input type="date" name="due" class="due"></div><br>
+  <div class="field">Location: <input type="text" class="location"></div><br>
   <button id="addTask">Add Task</button>
   <button id="closeOverlay">Close Window</button>
 </script>

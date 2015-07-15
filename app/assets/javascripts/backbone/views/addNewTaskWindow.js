@@ -1,9 +1,9 @@
 var app = app || {};
 
 app.AddNewTaskWindow = Backbone.View.extend({
-   el: '.editTask',
+  el: '.editTask',
 
-  render: function() { 
+  render: function() {
     this.$el.html('');
 
     var addNewTaskWindowTemplate = $('#addNewTaskWindowTemplate').html();
@@ -12,7 +12,27 @@ app.AddNewTaskWindow = Backbone.View.extend({
 
     $('#closeOverlay').on('click', function() {
       $('.overlay').hide();
-      $('.phaseBackground').hide();    
+      $('.phaseBackground').hide();
+    });
+
+    $('#addTask').on('click', function() {
+      // Set's up the task data to save.
+      var newTask = new app.Task({
+        'name': $('.name').val(),
+        'due': $('.due').val(),
+        'location': $('.location').val(),
+        'priority': $('.priority').val(),
+        'notebook_id': app.currentNotebook
+      });
+
+      newTask.save().done(function(data) {
+        $('.overlay').hide();
+        $('.phaseBackground').hide();
+        
+        var notebook = app.notebooks.get(app.currentNotebook);
+        var notebookTasksView = new app.NotebookTasksView({model: notebook});
+        notebookTasksView.render();
+      });
     });
   }
 });

@@ -40,23 +40,26 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
 
-    tags = task_params['all_tags'].split(",").map do |tag|
-        Tag.where(name: tag.strip).first_or_create!
+    if task_params['all_tags']
+      tags = task_params['all_tags'].split(",").map do |tag|
+          Tag.where(name: tag.strip).first_or_create!
+      end
     end
     respond_to do |format|
       if @task.save
-      file = task_params[:file]
-       if file
-         cloudObj = Cloudinary::Uploader.upload(file.path, :resource_type => :auto) 
-         @task.file = cloudObj['url']
-         @task.filename = task_params[:file].original_filename
-       else
-         @task.file = nil
-       end
+      # file = task_params[:file]
+       # if file != ""
+       #   cloudObj = Cloudinary::Uploader.upload(file, :resource_type => :auto) 
+       #   @task.file = cloudObj['url']
+       #   @task.filename = task_params[:file].original_filename
+       # else
+       #   @task.file = nil
+       # end
+        @task.priority = task_params['priority'].to_i
         @task.user_id = @current_user.id
         @task.save
         format.html { redirect_to root_path, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
+        format.json { render json: @task }
       else
         format.html { render :new }
         format.json { render json: root_path.errors, status: :unprocessable_entity }
