@@ -26,16 +26,27 @@ app.ShowNotebookWindow = Backbone.View.extend({
       Notebook.render();
     });
 
-    $('#deleteTaskButton').on('click', function() {
+    $('#deleteNotebookButton').on('click', function() {
       $('.overlay').hide();
       $('.phaseBackground').hide();  
 
-      model.destroy().done(function() {
-        console.log('task deleted.');
-        var notebook = app.notebooks.get(app.currentNotebook);
-        var notebookTasksView = new app.NotebookTasksView({model: notebook});
-        notebookTasksView.render();
+      var modelsToDelete = new app.Tasks({notebook_id: parseInt(app.currentNotebook)});
+      modelsToDelete.fetch().done(function(data) {
+        var modelToDelete;
+        while (modelToDelete = modelsToDelete.first()) {
+          modelToDelete.destroy();
+        };
+
+        model.destroy().done(function() {
+          app.router.navigate('/', true);
+          // console.log('task deleted.');
+          // var notebook = app.notebooks.get(app.currentNotebook);
+          // var notebookTasksView = new app.NotebookTasksView({model: notebook});
+          // notebookTasksView.render();
+        });
       });
+
+
     })
 
 

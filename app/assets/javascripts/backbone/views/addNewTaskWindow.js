@@ -30,8 +30,11 @@ app.AddNewTaskWindow = Backbone.View.extend({
         $('.phaseBackground').hide();
         
         var notebook = app.notebooks.get(app.currentNotebook);
+        console.log('addNewTaskWindow.js - getting this notebook', notebook);
         var notebookTasksView = new app.NotebookTasksView({model: notebook});
         notebookTasksView.render();
+        var notebookTasksSetupView = new app.NotebookTasksSetupView({model: notebook});
+        notebookTasksSetupView.render();
       });
     });
   }

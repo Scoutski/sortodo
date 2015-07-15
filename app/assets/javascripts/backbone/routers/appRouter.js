@@ -22,8 +22,6 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   notebookTasks: function(id) {
-    console.log('appRouter.js - Loading Notebook ' + app.currentNotebook + ' view.');
-
     app.currentNotebook = id;
 
     var navView = new app.NavView();
@@ -33,7 +31,6 @@ app.AppRouter = Backbone.Router.extend({
     notebookView.render();
 
     var notebook = app.notebooks.get(id);
-    console.log('appRouter.js - passing in this notebook', notebook);
     
     var notebookTasksView = new app.NotebookTasksView({model: notebook});
     notebookTasksView.render();
@@ -43,6 +40,8 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   allTasks: function() {
+    app.currentNotebook = 0;
+    
     var navView = new app.NavView();
     navView.render();
 

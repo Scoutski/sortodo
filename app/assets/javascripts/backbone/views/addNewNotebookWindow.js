@@ -25,6 +25,8 @@ app.AddNewNotebookWindow = Backbone.View.extend({
         $('.overlay').hide();
         $('.phaseBackground').hide();
         console.log(data);
+        var route = Backbone.history.fragment;
+        app.router.navigate(route, true);
       });
     });
   }

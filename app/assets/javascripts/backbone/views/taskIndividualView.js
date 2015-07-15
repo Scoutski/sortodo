@@ -17,18 +17,26 @@ app.TaskIndividualView = Backbone.View.extend({
     this.$el.html(taskListHTML(thisTask));
     var $element = this.$el;
 
-    console.log("this tasks' priority is", thisTask.priority);
+    if (app.currentNotebook === 0) {
+      var thisNotebook = "no notebook found";
+      for (var i = 0; i < app.notebooks.toJSON().length; i++) {
+        if (app.notebooks.toJSON()[i].id === thisTask.notebook_id) {
+          thisNotebook = app.notebooks.toJSON[i];
+        }
+      };
+      console.log(thisNotebook);
+      // var borderString = ('' + app.notebooks.toJSON()[thisTask.notebook_id].color + ' 1px solid');
+      // console.log(borderString);
+      // $element.css('border', borderString);
+    }
+
     if (thisTask.priority === 1) {
-      console.log('placing');
       $element.appendTo('#one');
     } else if (thisTask.priority === 2) {
-      console.log('placing');
       $element.appendTo('#two');
     } else if (thisTask.priority === 3) {
-      console.log('placing');
       $element.appendTo('#three');
     } else if (thisTask.priority === 4) {
-      console.log('placing');
       $element.appendTo('#four');
     }
   },
