@@ -21,13 +21,12 @@ app.TaskIndividualView = Backbone.View.extend({
       var thisNotebook = "no notebook found";
       for (var i = 0; i < app.notebooks.toJSON().length; i++) {
         if (app.notebooks.toJSON()[i].id === thisTask.notebook_id) {
-          thisNotebook = app.notebooks.toJSON[i];
+          thisNotebook = app.notebooks.toJSON()[i];
         }
       };
-      console.log(thisNotebook);
-      // var borderString = ('' + app.notebooks.toJSON()[thisTask.notebook_id].color + ' 1px solid');
-      // console.log(borderString);
-      // $element.css('border', borderString);
+      var borderString = ('' + thisNotebook.color + ' 1px solid');
+      console.log(borderString);
+      $element.css('border', borderString);
     }
 
     if (thisTask.priority === 1) {

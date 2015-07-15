@@ -32,9 +32,14 @@ app.ShowTaskWindow = Backbone.View.extend({
 
       model.destroy().done(function() {
         console.log('task deleted.');
-        var notebook = app.notebooks.get(app.currentNotebook);
-        var notebookTasksView = new app.NotebookTasksView({model: notebook});
-        notebookTasksView.render();
+        if (app.currentNotebook >= 1) {
+          var notebook = app.notebooks.get(app.currentNotebook);
+          var notebookTasksView = new app.NotebookTasksView({model: notebook});
+          notebookTasksView.render();
+        } else {
+          var TasksView = new app.TasksView();
+          TasksView.render();  
+        }
       });
     })
 
