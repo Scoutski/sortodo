@@ -30,13 +30,7 @@
   <!-- This is the pop-up window when you select a task. -->
   <h3>{{ name }}</h3>
   <p>Priority: {{ priority }}</p>
-  {[ if (due !== null) { ]}
-  <p>Due Date: {{ moment(due).format('ll') }}</p>
-  {[ } ]}
   <p>Location: {{ location }}</p>
-  {[ if (file !== null) { ]}
-  <p>Associated file: <a href="{{ file }}" target="new">{{filename}}</a></p>
-  {[ } ]}
   <button id="closeOverlay">Close Window</button>
   <button id="editTaskButton">Edit Task</button><br>
   <button id="deleteTaskButton">Delete Task</button>
@@ -47,19 +41,27 @@
   <h3>Edit Task</h3>
   <div class="field">Name: <input type="text" value="{{name}}" name="name"></div><br>
   <div class="field">Priority: 
-  <select value="{{priority}}">
+  <select>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
-    <option value="4">4</option>
+    <option value="4" seleted>4</option>
   </select>
   </div><br>
-  <div class="field">Due: <input type="date" value="{{moment(due).format('YYYY-MM-DD')}}" name="due"></div><br>
   <div class="field">Location: <input type="text" value="{{location}}"></div><br>
-  <!-- TODO: Figure out how to do the tags ub gere... -->
+  <!-- TODO: Figure out how do the tags ub gere... -->
   <button id="closeOverlay">Close Window</button>
   <!-- TODO: Make the below button actually work... -->
   <button id="updateTask">Update Task</button>
+</script>
+
+<script id="showNotebookWindow" type="text/template">
+  <!-- This is the pop-up window when you select the notebook in the main content view. -->
+  <h3>{{ name }}</h3>
+  <p>color: {{ color }}</p>
+  <button id="closeOverlay">Close Window</button>
+  <button id="editNotebookButton">Edit Task</button><br>
+  <button id="deleteNotebookButton">Delete Task</button>
 </script>
 
 <script id="notebookListTemplate" type="text/template">
@@ -67,7 +69,7 @@
 </script>
 
 <script id="addNewNotebookTemplate" type="text/template">
-  <h3><strong>Add a new notebook</strong></h3>
+  <h3><strong>+ Add a notebook</strong></h3>
 </script>
 
 <script id="addNewNotebookWindowTemplate" type="text/template">
@@ -90,9 +92,28 @@
   <h3>All Tasks</h3>
 </script>
 
+<script id="allTasksTemplate" type="text/template">
+  <h1>All Tasks:</h1>
+  <div class="row">
+    <div class="col-md-3" id="one">Priority 1:<br></div>
+    <div class="col-md-3" id="two">Priority 2:<br></div>
+    <div class="col-md-3" id="three">Priority 3:<br></div>
+    <div class="col-md-3" id="four">Priority 4:<br></div>
+  </div>
+</script>
+
 <script id="notebookTasksTemplate" type="text/template">
   <!-- This is where the name of the notebook is displayed in the content section -->
   <h1>{{name}}</h1>
+</script>
+
+<script id="notebookTasksSetupTemplate" type="text/template">
+  <div class="row">
+    <div class="col-md-3" id="one">Priority 1:<br></div>
+    <div class="col-md-3" id="two">Priority 2:<br></div>
+    <div class="col-md-3" id="three">Priority 3:<br></div>
+    <div class="col-md-3" id="four">Priority 4:<br></div>
+  </div>
 </script>
 
 <script id="addNewTaskTemplate" type="text/template">
@@ -110,7 +131,6 @@
     <option value="4">4</option>
   </select>
   </div><br>
-  <div class="field">Due: <input type="date" name="due" class="due"></div><br>
   <div class="field">Location: <input type="text" class="location"></div><br>
   <button id="addTask">Add Task</button>
   <button id="closeOverlay">Close Window</button>

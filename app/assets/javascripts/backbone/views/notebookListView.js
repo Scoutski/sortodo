@@ -24,12 +24,12 @@ app.NotebookListView = Backbone.View.extend({
 
     this.$el.mouseenter(function() {
       $(this).css("background-color", fullColor)
-      .css("-webkit-transition", ".4s")
-      .css('transition', '.4s');
+      .css("-webkit-transition", ".3s")
+      .css('transition', '.3s');
     }).mouseleave(function() {
       $(this).css('background-color', fadedColor)
-      .css('-webkit-transition', '.4s')
-      .css('transition', '.4s');
+      .css('-webkit-transition', '.3s')
+      .css('transition', '.3s');
     });
     $('#notebook').append(toAppend);
   },

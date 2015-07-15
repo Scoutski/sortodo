@@ -29,9 +29,6 @@ app.AppRouter = Backbone.Router.extend({
     var navView = new app.NavView();
     navView.render();
 
-    var allTasksView = new app.AllTasksView();
-    allTasksView.render();
-
     var notebookView = new app.NotebookView();
     notebookView.render();
 
@@ -40,6 +37,9 @@ app.AppRouter = Backbone.Router.extend({
     
     var notebookTasksView = new app.NotebookTasksView({model: notebook});
     notebookTasksView.render();
+
+    var notebookTasksSetupView = new app.NotebookTasksSetupView({model: notebook});
+    notebookTasksSetupView.render();
   },
 
   allTasks: function() {

@@ -67,10 +67,15 @@
 
 #notebook {
   height: 95vh;
+  min-width: 279.984375px;
   padding: 0;
   background-color: #121F1F;
   opacity: 0.8;
   color: white;
+}
+
+#notebook div:first-child {
+  margin-top: 20px;
 }
 
 #notebook div {
@@ -78,14 +83,15 @@
   height: 5rem;
   width: 25rem;
   border: 1px solid white;
-  margin-bottom: 5px;
-  overflow: scroll;
+  margin-bottom: 12px;
+  // overflow: hidden;
   text-align: center;
   vertical-align: middle;
+  cursor: pointer; 
   h3 {
     margin-top: 0;
     margin-bottom: 0;
-    line-height: 0;
+    overflow: hidden;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -100,4 +106,10 @@
 #content {
   height: 95vh;
   padding: 0;
+  // #one {
+  //   margin-left: 10px;
+  // }
+  // #four {
+  //   margin-right: 10px;
+  // }
 }

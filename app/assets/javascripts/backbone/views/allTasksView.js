@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.AllTasksView = Backbone.View.extend({
-  tagName: 'p',
+  tagName: 'div',
 
   events: {
     'click': 'allTasks'

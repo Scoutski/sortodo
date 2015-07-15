@@ -7,6 +7,11 @@ app.TasksView = Backbone.View.extend({
 
   render: function() {
     this.$el.html('');
+
+    var allTasksTemplate = $('#allTasksTemplate').html();
+    var allTasksHTML = _.template(allTasksTemplate);
+    this.$el.html(allTasksHTML());
+    
     this.tasks = new app.Tasks();
     this.tasks.fetch();
   }

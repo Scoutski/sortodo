@@ -3,17 +3,34 @@
 var app = app || {};
 
 app.TaskIndividualView = Backbone.View.extend({
-  tagName: 'p',
+  tagName: 'div',
 
   events: {
     'click': 'popupEdit'
   },
 
   render: function() {
+    var thisTask = this.model.toJSON();
+
     var taskListTemplate = $('#taskListTemplate').html();
     var taskListHTML = _.template(taskListTemplate);
-    this.$el.html(taskListHTML(this.model.toJSON()));
-    this.$el.appendTo('#content');
+    this.$el.html(taskListHTML(thisTask));
+    var $element = this.$el;
+
+    console.log("this tasks' priority is", thisTask.priority);
+    if (thisTask.priority === 1) {
+      console.log('placing');
+      $element.appendTo('#one');
+    } else if (thisTask.priority === 2) {
+      console.log('placing');
+      $element.appendTo('#two');
+    } else if (thisTask.priority === 3) {
+      console.log('placing');
+      $element.appendTo('#three');
+    } else if (thisTask.priority === 4) {
+      console.log('placing');
+      $element.appendTo('#four');
+    }
   },
 
   popupEdit: function() {

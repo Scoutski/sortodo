@@ -3,7 +3,7 @@
 var app = app || {};
 
 app.AddNewNotebookView = Backbone.View.extend({
-  tagName: 'p',
+  tagName: 'div',
 
   events: {
     'click': 'addNewNotebookWindow'
@@ -13,6 +13,7 @@ app.AddNewNotebookView = Backbone.View.extend({
     var addNewNotebookTemplate = $('#addNewNotebookTemplate').html();
     var addNewNotebookHTML = _.template(addNewNotebookTemplate);
     var toAppend = this.$el.html(addNewNotebookHTML());
+    
     $('#notebook').append(toAppend);
   },
 
