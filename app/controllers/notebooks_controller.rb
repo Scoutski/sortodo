@@ -35,7 +35,7 @@ class NotebooksController < ApplicationController
         @notebook.user_id = @current_user.id
         @notebook.save
         format.html { redirect_to root_path, notice: 'Notebook was successfully created.' }
-        format.json { render :show, status: :created, location: @notebook }
+        format.json { render json: @task }
       else
         format.html { render :new }
         format.json { render json: @notebook.errors, status: :unprocessable_entity }

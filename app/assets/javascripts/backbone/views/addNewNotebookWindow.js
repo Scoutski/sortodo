@@ -13,5 +13,19 @@ app.AddNewNotebookWindow = Backbone.View.extend({
       $('.overlay').hide();
       $('.phaseBackground').hide();    
     });
+
+    $('#addNotebook').on('click', function() {
+      // Set's up the task data to save.
+      var newNotebook = new app.Notebook({
+        'name': $('.name').val(),
+        'color': $('.color').val()
+      });
+
+      newNotebook.save().done(function(data) {
+        $('.overlay').hide();
+        $('.phaseBackground').hide();
+        console.log(data);
+      });
+    });
   }
 });
