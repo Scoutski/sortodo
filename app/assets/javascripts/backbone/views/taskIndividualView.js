@@ -24,9 +24,9 @@ app.TaskIndividualView = Backbone.View.extend({
           thisNotebook = app.notebooks.toJSON()[i];
         }
       };
-      var borderString = ('' + thisNotebook.color + ' 1px solid');
+      var borderString = ('' + thisNotebook.color + ' 3px solid');
       console.log(borderString);
-      $element.css('border', borderString);
+      $element.find('h3').css('border-bottom', borderString).css('display', 'inline-block');
     }
 
     if (thisTask.priority === 1) {

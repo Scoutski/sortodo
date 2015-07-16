@@ -3,7 +3,7 @@
 var app = app || {};
 
 app.AddNewTaskView = Backbone.View.extend({
-  tagName: 'p',
+  tagName: 'div',
 
   events: {
     'click': 'addNewTaskWindow'

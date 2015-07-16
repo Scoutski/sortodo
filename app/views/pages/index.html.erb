@@ -1,3 +1,4 @@
+<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
 <div class="phaseBackground"></div>
 
 <div class="overlay">
@@ -11,7 +12,7 @@
 <div id="main">
   <div class="row">
   <div id="nav" class="col-md-2"></div>
-  <div id="status" class="col-md-10"></div>
+  <div id="status" class="col-md-10"><p>Status Bar</p></div>
   </div>
 
   <div class="row">
@@ -95,24 +96,24 @@
 <script id="allTasksTemplate" type="text/template">
   <h1>All Tasks:</h1>
   <div class="row">
-    <div class="col-md-3" id="one">Priority 1:<br></div>
-    <div class="col-md-3" id="two">Priority 2:<br></div>
-    <div class="col-md-3" id="three">Priority 3:<br></div>
-    <div class="col-md-3" id="four">Priority 4:<br></div>
+    <div class="priorities" id="one"><p>Priority 1:</p></div>
+    <div class="priorities" id="two"><p>Priority 2:</p></div>
+    <div class="priorities" id="three"><p>Priority 3:</p></div>
+    <div class="priorities" id="four"><p>Priority 4:</p></div>
   </div>
 </script>
 
 <script id="notebookTasksTemplate" type="text/template">
   <!-- This is where the name of the notebook is displayed in the content section -->
-  <h1>{{name}}</h1>
+  <h1>{{ name.toUpperCase() }}</h1>
 </script>
 
 <script id="notebookTasksSetupTemplate" type="text/template">
   <div class="row">
-    <div class="col-md-3" id="one">Priority 1:<br></div>
-    <div class="col-md-3" id="two">Priority 2:<br></div>
-    <div class="col-md-3" id="three">Priority 3:<br></div>
-    <div class="col-md-3" id="four">Priority 4:<br></div>
+    <div class="priorities" id="one"><p>Priority 1:</p></div>
+    <div class="priorities" id="two"><p>Priority 2:</p></div>
+    <div class="priorities" id="three"><p>Priority 3:</p></div>
+    <div class="priorities" id="four"><p>Priority 4:</p></div>
   </div>
 </script>
 
