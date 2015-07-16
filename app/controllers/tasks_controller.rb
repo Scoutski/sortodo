@@ -73,20 +73,20 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
       # Update the tags.
-      tags = task_params['all_tags'].split(",").map do |tag|
-        Tag.where(name: tag.strip).first_or_create!
-      end
-      file = task_params[:file]
-      if file
-        cloudObj = Cloudinary::Uploader.upload(file.path, :resource_type => :auto) 
-        @task.file = cloudObj['url']
-        @task.filename = task_params[:file].original_filename
-      else
-        @task.file = nil
-      end
+      # tags = task_params['all_tags'].split(",").map do |tag|
+      #   Tag.where(name: tag.strip).first_or_create!
+      # end
+      # file = task_params[:file]
+      # if file
+      #   cloudObj = Cloudinary::Uploader.upload(file.path, :resource_type => :auto) 
+      #   @task.file = cloudObj['url']
+      #   @task.filename = task_params[:file].original_filename
+      # else
+      #   @task.file = nil
+      @task.priority = task_params['priority'].to_i
       @task.save
         format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+        format.json { render json: @task }
       else
         format.html { render :edit }
         format.json { render json: root_path.errors, status: :unprocessable_entity }

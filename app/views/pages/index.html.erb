@@ -43,16 +43,16 @@
 <script id="editTaskWindow" type="text/template">
   <!-- This is the pop-up window when you select the edit button from the show task window. -->
   <h3>Edit Task</h3>
-  <div class="field">Name: <input type="text" value="{{name}}" name="name"></div><br>
+  <div class="field">Name: <input type="text" value="{{name}}" name="name" class="name"></div><br>
   <div class="field">Priority: 
-  <select>
+  <select class="priority">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4" seleted>4</option>
   </select>
   </div><br>
-  <div class="field">Location: <input type="text" value="{{location}}"></div><br>
+  <div class="field">Location: <input type="text" value="{{location}}" class="location"></div><br>
   <!-- TODO: Figure out how do the tags ub gere... -->
   <button id="closeOverlay">Close Window</button>
   <!-- TODO: Make the below button actually work... -->

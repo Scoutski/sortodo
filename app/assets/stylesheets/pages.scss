@@ -50,21 +50,12 @@
   min-height: 40px;
   background-color: rgba(60,179,113,0.8);
   vertical-align: middle;
-  a {
+  a, span {
     margin-top: 0;
     margin-bottom: 0;
-    line-height: 0;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    line-height: 5vh;
   }
   span {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 0;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 22px;
   }
 }
