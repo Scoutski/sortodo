@@ -35,6 +35,22 @@
 
 .editTask {
   z-index: 500;
+  text-align: left;
+  h3 {
+    font-family: 'Rokkitt', serif;
+    text-align: center;
+  }
+  .label {
+    margin-left: 0;
+    width: 150px;
+    text-align: right;
+    color: black;
+    display: inline-block;
+  }
+  .value {
+    display: inline-block;
+    width: 150px;
+  }
 }
 
 #closeOverlay {

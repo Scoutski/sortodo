@@ -23,7 +23,7 @@ app.ShowNotebookWindow = Backbone.View.extend({
       var notebook = new app.EditNotebookWindow({
         model: model
       });
-      Notebook.render();
+      notebook.render();
     });
 
     $('#deleteNotebookButton').on('click', function() {
