@@ -34,7 +34,6 @@ app.ShowTaskWindow = Backbone.View.extend({
       $('#status').html('<p>Notebook: "' + name + '" has been deleted.</p>');
 
       model.destroy().done(function() {
-        console.log('task deleted.');
         if (app.currentNotebook >= 1) {
           var notebook = app.notebooks.get(app.currentNotebook);
           var notebookTasksView = new app.NotebookTasksView({model: notebook});

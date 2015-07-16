@@ -15,8 +15,6 @@ app.NotebookTasksView = Backbone.View.extend({
     var notebookTasksHTML = _.template(notebookTasksTemplate);
     var toAppend = this.$el.html(notebookTasksHTML(this.model.toJSON()));
     $('#content').append(toAppend);
-    
-    console.log('notebookTasksView.js - rendering the notebook name');
   },
 
   showNotebookWindow: function() {

@@ -27,8 +27,7 @@ app.EditTaskWindow = Backbone.View.extend({
         'priority': $('.priority').val(),
       };
 
-      console.log('updating task...', currentTask);
-      
+
       model.save(currentTask, {patch: true}).done(function(data) {
         $('.overlay').hide();
         $('.phaseBackground').hide();
@@ -36,7 +35,6 @@ app.EditTaskWindow = Backbone.View.extend({
         $('#status').html('<p>Task: "' + name + '" successfully udpated.</p>');
         
         var notebook = app.notebooks.get(app.currentNotebook);
-        console.log('addNewTaskWindow.js - getting this notebook', notebook);
         var notebookTasksView = new app.NotebookTasksView({model: notebook});
         notebookTasksView.render();
         var notebookTasksSetupView = new app.NotebookTasksSetupView({model: notebook});

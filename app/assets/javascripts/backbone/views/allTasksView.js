@@ -18,7 +18,6 @@ app.AllTasksView = Backbone.View.extend({
 
     // TODO: Have this function only appear on the #notebookView that is rendered, not the additional NotebookListView items.
   allTasks: function() {
-    console.log('displaying all tasks');
     app.router.navigate('tasks/', true);
   }
 });

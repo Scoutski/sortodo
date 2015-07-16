@@ -5,7 +5,6 @@ app.Notebooks = Backbone.Collection.extend({
   model: app.Notebook,
 
   initialize: function() {
-    console.log('notebooks.js - getting all the notebooks');
     this.on('add', function (notebook) {
       var notebook = new app.NotebookListView({model: notebook});
       notebook.render();

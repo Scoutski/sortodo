@@ -25,7 +25,6 @@ app.TaskIndividualView = Backbone.View.extend({
         }
       };
       var borderString = ('' + thisNotebook.color + ' 3px solid');
-      console.log(borderString);
       $element.find('h3').css('border-bottom', borderString).css('display', 'inline-block');
     }
 
