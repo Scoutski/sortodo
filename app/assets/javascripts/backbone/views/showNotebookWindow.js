@@ -27,8 +27,11 @@ app.ShowNotebookWindow = Backbone.View.extend({
     });
 
     $('#deleteNotebookButton').on('click', function() {
+      var name = $('.editTask h3').html();
       $('.overlay').hide();
       $('.phaseBackground').hide();  
+
+      $('#status').html('<p>Notebook: "' + name + '" has been deleted.</p>');
 
       var modelsToDelete = new app.Tasks({notebook_id: parseInt(app.currentNotebook)});
       modelsToDelete.fetch().done(function(data) {

@@ -15,15 +15,17 @@ app.AddNewNotebookWindow = Backbone.View.extend({
     });
 
     $('#addNotebook').on('click', function() {
+      var name = $('.name').val();
       // Set's up the task data to save.
       var newNotebook = new app.Notebook({
-        'name': $('.name').val(),
+        'name': name,
         'color': $('.color').val()
       });
 
       newNotebook.save().done(function() {
         $('.overlay').hide();
         $('.phaseBackground').hide();
+        $('#status').html('<p>New Notebook: "' + name + '" successfully created.</p>');
         var notebookView = new app.NotebookView();
         notebookView.render();
       });

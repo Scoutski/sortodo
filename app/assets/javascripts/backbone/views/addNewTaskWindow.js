@@ -16,9 +16,10 @@ app.AddNewTaskWindow = Backbone.View.extend({
     });
 
     $('#addTask').on('click', function() {
+      var name = $('.name').val();
       // Set's up the task data to save.
       var newTask = new app.Task({
-        'name': $('.name').val(),
+        'name': name,
         'due': $('.due').val(),
         'location': $('.location').val(),
         'priority': $('.priority').val(),
@@ -28,6 +29,8 @@ app.AddNewTaskWindow = Backbone.View.extend({
       newTask.save().done(function(data) {
         $('.overlay').hide();
         $('.phaseBackground').hide();
+
+        $('#status').html('<p>New Task: "' + name + '" successfully created.</p>');
         
         var notebook = app.notebooks.get(app.currentNotebook);
         console.log('addNewTaskWindow.js - getting this notebook', notebook);

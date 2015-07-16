@@ -27,8 +27,11 @@ app.ShowTaskWindow = Backbone.View.extend({
     });
 
     $('#deleteTaskButton').on('click', function() {
+      var name = $('.editTask h3').html();
       $('.overlay').hide();
       $('.phaseBackground').hide();  
+
+      $('#status').html('<p>Notebook: "' + name + '" has been deleted.</p>');
 
       model.destroy().done(function() {
         console.log('task deleted.');
