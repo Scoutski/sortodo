@@ -1,4 +1,6 @@
 <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 <div class="phaseBackground"></div>
 
 <div class="overlay">
@@ -23,7 +25,8 @@
 </div>
 
 <script id="navView" type="text/template">
-  <%= link_to('Home', app_path) %> | 
+  <span><i class="fa fa-check-circle-o"></i> Sortodo</span>
+  <%= link_to('Home', app_path) %>
   <%= link_to('Log Out', root_path, :method => :delete, :confirm => 'Are you sure?') %>
 </script>
 
@@ -118,7 +121,7 @@
 </script>
 
 <script id="addNewTaskTemplate" type="text/template">
-  <h3><strong>Add a new task</strong><h3>
+  <h3><strong>+ Add a new task</strong><h3>
 </script>
 
 <script id="addNewTaskWindowTemplate" type="text/template">

@@ -10,10 +10,6 @@ $(document).ready(function() {
   $('.overlay').hide();
   $('.phaseBackground').hide();
 
-  app.notebooks = new app.Notebooks();
-
-  app.notebooks.fetch().done(function() {
-    app.router = new app.AppRouter();
-    Backbone.history.start();
-  });
+  app.router = new app.AppRouter();
+  Backbone.history.start();
 });

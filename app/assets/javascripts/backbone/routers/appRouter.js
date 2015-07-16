@@ -28,15 +28,9 @@ app.AppRouter = Backbone.Router.extend({
     navView.render();
 
     var notebookView = new app.NotebookView();
-    notebookView.render();
+    notebookView.render(id);
 
-    var notebook = app.notebooks.get(id);
-    
-    var notebookTasksView = new app.NotebookTasksView({model: notebook});
-    notebookTasksView.render();
-
-    var notebookTasksSetupView = new app.NotebookTasksSetupView({model: notebook});
-    notebookTasksSetupView.render();
+    // This isn't able to be defined because the fetch inside the previous render isn't done...
   },
 
   allTasks: function() {

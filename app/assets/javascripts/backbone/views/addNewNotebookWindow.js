@@ -21,12 +21,11 @@ app.AddNewNotebookWindow = Backbone.View.extend({
         'color': $('.color').val()
       });
 
-      newNotebook.save().done(function(data) {
+      newNotebook.save().done(function() {
         $('.overlay').hide();
         $('.phaseBackground').hide();
-        console.log(data);
-        var route = Backbone.history.fragment;
-        app.router.navigate(route, true);
+        var notebookView = new app.NotebookView();
+        notebookView.render();
       });
     });
   }

@@ -20,7 +20,6 @@ app.NotebookListView = Backbone.View.extend({
     this.$el.css('background-color', fadedColor);
     
     var toAppend = this.$el.html(notebookListHTML(model) );
-    
 
     this.$el.mouseenter(function() {
       $(this).css("background-color", fullColor)
