@@ -12,6 +12,7 @@ app.AddNewTaskView = Backbone.View.extend({
   render: function() {
     var addNewTaskTemplate = $('#addNewTaskTemplate').html();
     var addNewTaskHTML = _.template(addNewTaskTemplate);
+    this.$el.addClass('addNewTaskButton');
     var toAppend = this.$el.html(addNewTaskHTML());
     $('#content').append(toAppend);
   },

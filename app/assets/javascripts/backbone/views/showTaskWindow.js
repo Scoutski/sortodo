@@ -19,6 +19,11 @@ app.ShowTaskWindow = Backbone.View.extend({
       $('.phaseBackground').hide();    
     });
 
+    $('.phaseBackground').on('click', function() {
+      $('.overlay').hide();
+      $('.phaseBackground').hide();    
+    });
+
     $('#editTaskButton').on('click', function() {
       var task = new app.EditTaskWindow({
         model: model

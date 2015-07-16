@@ -18,6 +18,11 @@ app.EditNotebookWindow = Backbone.View.extend({
       $('.phaseBackground').hide();    
     });
 
+    $('.phaseBackground').on('click', function() {
+      $('.overlay').hide();
+      $('.phaseBackground').hide();    
+    });
+
     $('#updateNotebook').on('click', function() {
       var name = $('.name').val();
       // Set's up the task data to save.

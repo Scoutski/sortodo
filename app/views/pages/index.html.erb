@@ -35,47 +35,43 @@
   <h3>{{ name }}</h3>
   <div class="label">Priority:</div> <div class="value">{{ priority }}</div><br>
   <div class="label">Location:</div> <div class="value">{{ location }}</div><br>
-  <button id="closeOverlay">Close Window</button>
-  <button id="editTaskButton">Edit Task</button><br>
-  <button id="deleteTaskButton">Delete Task</button>
+  <div class="windowButton"><button id="closeOverlay">Close Window</button></div><br>
+  <div class="windowButton"><button id="editTaskButton">Edit Task</button></div><br>
+  <div class="windowButton"><button id="deleteTaskButton">Delete Task</button></div>
 </script>
 
 <script id="editTaskWindow" type="text/template">
   <!-- This is the pop-up window when you select the edit button from the show task window. -->
   <h3>Edit Task</h3>
-  <div class="field">Name: <input type="text" value="{{name}}" name="name" class="name"></div><br>
-  <div class="field">Priority: 
+  <div class="field"><div class="label edit">Name:</div><input type="text" value="{{name}}" name="name" class="name"></div> <br>
+  <div class="field"><div class="label edit ">Priority:</div>
   <select class="priority">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4" seleted>4</option>
+    <option value="1">1 - Critical Priority</option>
+    <option value="2">2 - High Priority</option>
+    <option value="3">3 - Medium Priority</option>
+    <option value="4" seleted>4 - Low Priority</option>
   </select>
-  </div><br>
-  <div class="field">Location: <input type="text" value="{{location}}" class="location"></div><br>
-  <!-- TODO: Figure out how do the tags ub gere... -->
-  <button id="closeOverlay">Close Window</button>
-  <!-- TODO: Make the below button actually work... -->
-  <button id="updateTask">Update Task</button>
+  <br>
+  <div class="field"><div class="label edit">Location:</div> <input type="text" value="{{location}}" class="location"></div><br>
+  <div class="windowButton"><button id="closeOverlay">Close Window</button></div><br>
+  <div class="windowButton"><button id="updateTask">Update Task</button></div>
 </script>
 
 <script id="showNotebookWindow" type="text/template">
   <!-- This is the pop-up window when you select the notebook in the main content view. -->
   <h3>{{ name }}</h3>
-  <p>color: {{ color }}</p>
-  <button id="closeOverlay">Close Window</button>
-  <button id="editNotebookButton">Edit Notebook</button><br>
-  <button id="deleteNotebookButton">Delete Notebook</button>
+  <p><div class="label">Color:</div> {{ color }}</p>
+  <div class="windowButton"><button id="closeOverlay">Close Window</button></div><br>
+  <div class="windowButton"><button id="editNotebookButton">Edit Notebook</button></div><br>
+  <div class="windowButton"><button id="deleteNotebookButton">Delete Notebook</button></div>
 </script>
 
 <script id="editNotebookWindow" type="text/template">
   <h3>Edit Notebook</h3>
-  <div class="field">Name: <input type="text" value="{{name}}" name="name" class="name"></div><br>
-  <div class="field">Color: <input class="color" type="color" value="{{color}}"></div><br>
-  <!-- TODO: Figure out how do the tags ub gere... -->
-  <button id="closeOverlay">Close Window</button>
-  <!-- TODO: Make the below button actually work... -->
-  <button id="updateNotebook">Update Notebook</button>
+  <div class="field"><div class="label">Name:</div><input type="text" value="{{name}}" name="name" class="name"></div><br>
+  <div class="field"><div class="label">Color:</div><input class="color" type="color" value="{{color}}"></div><br>
+  <div class="windowButton"><button id="closeOverlay">Close Window</button></div><br>
+  <div class="windowButton"><button id="updateNotebook">Update Notebook</button></div>
 </script>
 
 <script id="notebookListTemplate" type="text/template">
@@ -88,14 +84,14 @@
 
 <script id="addNewNotebookWindowTemplate" type="text/template">
   <h3>Add New Notebook</h3>
-  <div class="field">Name: <input type="text" name="name" class="name"></div><br>
-  <div class="field">Color: <input type="color" class="color"></div><br>
-  <button id="addNotebook">Add Notebook</button>
-  <button id="closeOverlay">Close Window</button>
+  <div class="field"><div class="label">Name:</div><input type="text" name="name" class="name"></div><br>
+  <div class="field"><div class="label">Color:</div><input type="color" class="color"></div><br>
+  <div class="windowButton"><button id="addNotebook">Add Notebook</button></div><br>
+  <div class="windowButton"><button id="closeOverlay">Close Window</button></div>
 </script>
 
 <script id="contentView" type="text/template">
-  <h3>This is where the content goes.</h3>
+  <h3>Please select a notebook...</h3>
 </script>
 
 <script id="notebookTasksView" type="text/template">
@@ -123,10 +119,10 @@
 
 <script id="notebookTasksSetupTemplate" type="text/template">
   <div class="row">
-    <div class="priorities" id="one"><p>Priority 1:</p></div>
-    <div class="priorities" id="two"><p>Priority 2:</p></div>
-    <div class="priorities" id="three"><p>Priority 3:</p></div>
-    <div class="priorities" id="four"><p>Priority 4:</p></div>
+    <div class="priorities" id="one"><p>Critical:</p></div>
+    <div class="priorities" id="two"><p>High:</p></div>
+    <div class="priorities" id="three"><p>Medium:</p></div>
+    <div class="priorities" id="four"><p>Low:</p></div>
   </div>
 </script>
 
@@ -136,18 +132,18 @@
 
 <script id="addNewTaskWindowTemplate" type="text/template">
   <h3>Add a new Task:</h3>
-  <div class="field">Name: <input type="text" name="name" class="name"></div><br>
-  <div class="field">Priority: 
+  <div class="field"><div class="label">Name:</div><input type="text" name="name" class="name"></div><br>
+  <div class="field"><div class="label">Priority:</div>
   <select class="priority">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
+    <option value="1">1 - Critical Priority</option>
+    <option value="2">2 - High Priority</option>
+    <option value="3">3 - Medium Priority</option>
+    <option value="4" seleted>4 - Low Priority</option>
   </select>
   </div><br>
   <div class="field">Location: <input type="text" class="location"></div><br>
-  <button id="addTask">Add Task</button>
-  <button id="closeOverlay">Close Window</button>
+  <div class="windowButton"><button id="addTask">Add Task</button></div><br>
+  <div class="windowButton"><button id="closeOverlay">Close Window</button></div>
 </script>
 
 <script id="taskListTemplate" type="text/template">

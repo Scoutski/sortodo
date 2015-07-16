@@ -19,6 +19,11 @@ app.ShowNotebookWindow = Backbone.View.extend({
       $('.phaseBackground').hide();    
     });
 
+    $('.phaseBackground').on('click', function() {
+      $('.overlay').hide();
+      $('.phaseBackground').hide();    
+    });
+
     $('#editNotebookButton').on('click', function() {
       var notebook = new app.EditNotebookWindow({
         model: model

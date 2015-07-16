@@ -26,7 +26,7 @@
 
 .middleOverlay {
   width: 480px;
-  height: 400px;
+  height: 500px;
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;
@@ -37,24 +37,69 @@
   z-index: 500;
   text-align: left;
   h3 {
+    font-size: 40px;
     font-family: 'Rokkitt', serif;
     text-align: center;
   }
   .label {
     margin-left: 0;
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: 300;
     width: 150px;
     text-align: right;
     color: black;
     display: inline-block;
   }
+  .edit {
+    text-align: left;
+  }
   .value {
     display: inline-block;
     width: 150px;
+    font-size: 20px;
   }
-}
-
-#closeOverlay {
-  margin-bottom: 20px;
+  button {
+    width: 200px;
+    height: 40px;
+    background: rgba(60,179,113,0.7);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    // font-family: Georgia;
+    color: #ffffff;
+    font-size: 20px;
+    border: solid rgba(60,179,113,1) 2px;
+    text-decoration: none;
+  }
+  button:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+  }
+  select {
+    background: transparent;
+    width: 314px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    height: 34px;
+    margin-bottom: 7px;
+  }
+  .windowButton {
+    margin: 0 auto;
+    margin-bottom: 1px;
+    text-align: center;
+  }
+  input {
+    font-size: 2em;
+    border: 0;
+    border-bottom: 1px solid grey;
+  }
 }
 
 #main {
@@ -141,6 +186,10 @@
       font-family: 'Rokkitt', serif;
       font-size: 46px;
     }
+    h1:hover {
+      cursor: pointer;
+      color: rgba(60,179,113,1);
+    }
   }
   .priorities {
     height: 500px;
@@ -152,6 +201,10 @@
     div {
       margin-left: 10px;
       margin-right: 10px;
+      cursor: pointer;
+    }
+    div:hover {
+      color: rgba(60,179,113,1);
     }
     p {
       text-align: center;
@@ -164,4 +217,12 @@
     margin-left: 20px;
     font-family: 'Rokkitt', serif;
   }
+}
+
+.addNewTaskButton {
+  cursor: pointer;
+}
+
+.addNewTaskButton:hover {
+  color: rgba(60,179,113,1);
 }

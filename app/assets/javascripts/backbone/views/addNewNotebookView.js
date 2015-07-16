@@ -15,6 +15,8 @@ app.AddNewNotebookView = Backbone.View.extend({
     var toAppend = this.$el.html(addNewNotebookHTML());
     
     $('#notebook').append(toAppend);
+
+    
   },
 
   addNewNotebookWindow: function() {

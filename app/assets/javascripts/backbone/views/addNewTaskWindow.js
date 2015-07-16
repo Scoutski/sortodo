@@ -15,6 +15,11 @@ app.AddNewTaskWindow = Backbone.View.extend({
       $('.phaseBackground').hide();
     });
 
+    $('.phaseBackground').on('click', function() {
+      $('.overlay').hide();
+      $('.phaseBackground').hide();    
+    });
+
     $('#addTask').on('click', function() {
       var name = $('.name').val();
       // Set's up the task data to save.
