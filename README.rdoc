@@ -15,14 +15,35 @@ Introduction and Background
 
 Sortodo is a simple to do list web application that is loosely based around the iOS mobile application 'GNEO'.
 
+The general idea of the application is that a user can sign in and create multiple notebooks for different types of tasks (e.g. personal tasks, work tasks). Once a notebook has been created, the user can then create tasks which are sorted on a display page by priority (from 1-4).
+
+My goal in making this app was to expose myself to as much Backbone.JS as possible as I felt it was one of my weaker areas before this project. Ultimately, sortodo gave me exactly the exposure I was looking for in regards to nested collections, models and a huge amount of views all in a single-page app.
+
 Versions
 ---
+
+v0.1 The first working version of this project was released on the 16th of July, 2015. All the outlined functionality in the introduction was included and working.
+
+At this stage the application is missing a designed log in and sign up interface. Functionally they are working as intended but require CSS design.
 
 User Guide
 ---
 
+Users can start by signing in and creating an account. From there the app has been designed in a way that should be straightforward for the user.
+
+After logging in to the app, the left-hand side of the page lists all the notebooks that exist for the current user and then once a notebook has been selected, the related tasks are shown in the main page.
+
+There are links in the relevant sections for adding new notebooks and tasks.
+
+To complete a task, select the task from the main view and select the delete task button.
+
 Testing
 ---
 
+The app was user tested thoroughly in development. Some RSpec tests written for the database handling of the notebook and task retrieval.
+
 Related Resources
 ---
+
+- [GNEO Official website](http://gneo.co/)
+- [Backbone.JS website](http://backbonejs.org/)
